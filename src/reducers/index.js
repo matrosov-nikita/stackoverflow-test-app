@@ -17,10 +17,30 @@ const displayName = (state = '', action) => {
     }
 }
 
-const items = (state = [], action) => {
+const isLoading = (state = true, action) => {
     switch (action.type) {
-        case 'ADD_ITEM': {
-            return state.concat(action.item);
+        case 'LOADING': {
+            return true;
+        }
+
+        case 'LOADED': {
+            return false;
+        }
+
+        case 'FAILED_LOAD': {
+            return false;
+        }
+
+        default: {
+            return state;
+        }
+    }
+}
+
+const dataSource = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_ITEMS': {
+            return state.concat(action.items);
         }
 
         default:  {
@@ -34,4 +54,4 @@ const nav = (state, action) => {
     return newState || state
 }
 
-export default combineReducers({ displayName, nav });
+export default combineReducers({ displayName, nav, isLoading, dataSource });

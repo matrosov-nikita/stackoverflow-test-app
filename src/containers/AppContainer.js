@@ -9,7 +9,7 @@ import {
 
   
 function AppContainer (props) {
-  const { dispatch, nav, displayName } = props;
+  const { dispatch, nav } = props;
 
   const middleware = createReactNavigationReduxMiddleware(
     "root",
@@ -25,12 +25,14 @@ function AppContainer (props) {
   });
 
   const screenProps = {
-      displayName: props.displayName
-      
+      displayName: props.displayName,
+      dataSource: props.dataSource,
+      isLoading: props.isLoading,
   };
 
   return <AppNavigation navigation={navigation} screenProps={screenProps}/>
 }
 
-const mapStateToProps = state => ({ nav: state.nav, displayName: state.displayName })
+const mapStateToProps = state => ({
+  nav: state.nav, displayName: state.displayName, dataSource: state.dataSource, isLoading: state.isLoading })
 export default connect(mapStateToProps)(AppContainer);

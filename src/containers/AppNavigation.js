@@ -4,6 +4,7 @@ import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import LogoutScreen from '../components/LogoutScreen';
 import { StyleSheet, Text, View, Button, Image, TouchableOpacity } from 'react-native';
 import React from 'react'
+import StackoverflowScreen from '../components/StackoverflowScreen';
 
 
 export default StackNavigator({
@@ -14,8 +15,18 @@ export default StackNavigator({
     },
     Drawer: {
         screen: DrawerNavigator({
-            Home: { screen: HomeScreen },
-            Logout: { screen: LogoutScreen },
+            Home: {
+                screen: HomeScreen,
+                navigationOptions: {title: 'Home',}
+            },
+            StackoverflowScreen: {
+                screen: StackoverflowScreen,
+                navigationOptions: {title: 'Stackoverflow'},
+            },
+            Logout: {
+                screen: LogoutScreen,
+                navigationOptions: {title: 'Log Out',}
+            },
         })
     }
 }, {
