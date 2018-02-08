@@ -22,7 +22,7 @@ export default class StackoverflowScreen extends React.Component {
                 data={data}
                 renderItem ={({item}) => (
                     <View> 
-                      <Text style={{ padding: 10 }}> {item.title} </Text> 
+                      <Text style={{ padding: 12, fontSize: 16 }}> {item.title} </Text> 
                     </View>
                 )}
             />
